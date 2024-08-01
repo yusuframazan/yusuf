@@ -14,10 +14,11 @@ header {
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin: 0 1em;
 }
 
@@ -28,7 +29,7 @@ nav ul li a {
 
 main {
     padding: 2em;
-    margin-bottom: 4em; /* footer'ın üstünde yeterli alan bırakmak için */
+    margin-bottom: 4em;
 }
 
 h2 {
@@ -38,7 +39,7 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1em;
 }
 
@@ -68,6 +69,29 @@ footer {
     color: white;
     text-align: center;
     padding: 1em 0;
-    position: relative; /* veya 'static' kullanabilirsiniz */
+    position: relative;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.5em 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    .grid-item {
+        padding: 0.5em;
+    }
+
+    th, td {
+        font-size: 0.8em;
+        padding: 0.3em;
+    }
 }
