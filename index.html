@@ -1,26 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensor Data</title>
+    <title>Akıllı Baret Takip Sistemi</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Sensor Data</h1>
-    <div id="sensorData"></div>
-
-    <script>
-        // sensorData.json dosyasından veriyi almak için bir HTTP GET isteği gönder
-        fetch('sensorData.json')
-        .then(response => response.json()) // JSON veriyi parse et
-        .then(data => {
-            // Alınan verileri HTML içine yerleştir
-            document.getElementById('sensorData').innerHTML = `
-                <p>Sıcaklık: ${data.temperature} °C</p>
-                <p>Nem: ${data.humidity} %</p>
-            `;
-        })
-        .catch(error => console.error('Hata:', error)); // Hata durumunda konsola bir hata mesajı yazdır
-    </script>
+    <header>
+        <h1>Akıllı Baret Takip Sistemi</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#workers">İşçiler</a></li>
+                <li><a href="#alerts">Uyarılar</a></li>
+                <li><a href="#reports">Raporlar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Genel Durum</h3>
+                    <p>İşçi Sayısı: <span id="workerCount">10</span></p>
+                    <p>Aktif İşçiler: <span id="activeWorkers">8</span></p>
+                    <p>Acil Durumlar: <span id="emergencies">2</span></p>
+                </div>
+                <div class="grid-item">
+                    <h3>İşçi Konumları</h3>
+                    <div id="map">Harita buraya gelecek</div>
+                </div>
+                <div class="grid-item">
+                    <h3>Sağlık Durumu</h3>
+                    <ul id="healthStatus">
+                        <!-- Sağlık durumu bilgileri burada listelenecek -->
+                        <li>İşçi 1: İyi</li>
+                        <li>İşçi 2: Tehlike</li>
+                        <li>İşçi 3: Orta</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="workers">
+            <h2>İşçi Listesi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>İsim</th>
+                        <th>Konum</th>
+                        <th>Sağlık Durumu</th>
+                        <th>Durum</th>
+                    </tr>
+                </thead>
+                <tbody id="workerTable">
+                    <!-- İşçi bilgileri burada listelenecek -->
+                    <tr>
+                        <td>1</td>
+                        <td>Ali</td>
+                        <td>Bölge A</td>
+                        <td>İyi</td>
+                        <td>Aktif</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ayşe</td>
+                        <td>Bölge B</td>
+                        <td>Tehlike</td>
+                        <td>Aktif</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="alerts">
+            <h2>Uyarılar</h2>
+            <ul id="alertList">
+                <!-- Uyarılar burada listelenecek -->
+                <li>İşçi 2 acil durumda!</li>
+                <li>İşçi 3 sıcaklık yüksek!</li>
+            </ul>
+        </section>
+        <section id="reports">
+            <h2>Raporlar</h2>
+            <p>Raporlama araçları burada olacak.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Akıllı Baret Takip Sistemi. Tüm hakları saklıdır.</p>
+    </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
